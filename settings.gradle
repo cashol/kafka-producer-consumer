@@ -1,0 +1,6 @@
+rootProject.name = 'kafka-producer-consumer'
+
+include 'kafka-message'
+include 'kafka-source'
+include 'kafka-processor'
+include 'kafka-sink'

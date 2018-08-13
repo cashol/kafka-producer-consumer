@@ -1,0 +1,56 @@
+subprojects {
+	buildscript {	
+		ext {
+			springBootVersion = '2.0.4.RELEASE'
+			springGradleVersion = '1.0.6.RELEASE'
+			springCloudVersion = 'Finchley.SR1'
+		}
+		
+		// Common repositories:
+		apply from: "${gradleUserHome}/repos.gradle", to: buildscript
+		
+	    dependencies {
+	        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	        classpath("io.spring.gradle:dependency-management-plugin:${springGradleVersion}")
+	    }
+    }
+
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+
+	dependencies {
+		compile("org.slf4j:slf4j-simple:${slf4jVersion}")
+		compile("org.springframework.boot:spring-boot-starter-actuator")
+		compile("org.springframework.cloud:spring-cloud-starter-stream-kafka")
+		// Necessary for @SpringBootApplication(exclude = TestSupportBinderAutoConfiguration.class) 
+		compile('org.springframework.cloud:spring-cloud-stream-test-support')
+		
+		runtime("org.springframework.boot:spring-boot-devtools")
+		
+		testCompile("org.springframework.boot:spring-boot-starter-test")
+		// Has to be excluded from BinderAutoConfiguration, when running production code:
+		// @SpringBootApplication(exclude = TestSupportBinderAutoConfiguration.class)
+		testCompile('org.springframework.cloud:spring-cloud-stream-test-support')
+	}
+}
+
+project(':kafka-message') {
+}
+
+project(':kafka-source') {
+	dependencies {
+		compile project(":kafka-message")
+	}
+}
+
+project(':kafka-processor') {
+	dependencies {
+		compile project(":kafka-message")
+	}
+}
+
+project(':kafka-sink') {
+	dependencies {
+		compile project(":kafka-message")
+	}
+}

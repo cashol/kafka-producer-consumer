@@ -1,0 +1,23 @@
+buildscript {
+	ext {
+		avroVersion = '1.8.2'
+	}
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.siemens.ra.ts.kafkaprocessor'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 10
+
+dependencies {
+	compile("org.springframework.cloud:spring-cloud-stream-reactive")
+	compile project(':kafka-message')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"namespace": "com.siemens.ra.ts.kafkamessage",
+	"type": "record",
+	"name": "ChatMessage",
+	"fields": 
+	[
+		{
+			"name": "content",
+			"type": "string"
+		},
+
+		{
+			"name": "time",
+			"type": "long"
+		}
+	]
+}

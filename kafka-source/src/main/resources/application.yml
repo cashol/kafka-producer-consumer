@@ -1,0 +1,52 @@
+
+spring:
+  profiles:
+    active: "docker"
+  cloud:
+    stream:
+      schema:
+        avro:
+          dynamicSchemaGenerationEnabled: true
+      defaultBinder: kafka
+      bindings:
+        output:
+          destination: messages
+          contentType: application/json;application/*+avro
+
+server:
+  port: 0
+
+fixedDelay: 1000
+maxMessagesPerPoll: 1
+
+---
+
+# Default profile
+spring:
+  profiles: default
+  cloud:
+    stream:
+      schemaRegistryClient:
+        endpoint: http://127.0.0.1:8081
+      kafka:
+        binder:
+          zkNodes: 127.0.0.1:2181
+          brokers: 127.0.0.1:9092
+          defaultZkPort: 2181
+          defaultBrokerPort: 9092
+
+---
+
+# Docker profile
+spring:
+  profiles: docker
+  cloud:
+    stream:
+      schemaRegistryClient:
+        endpoint: http://192.168.99.100:8081
+      kafka:
+        binder:
+          zkNodes: 192.168.99.100:2181
+          brokers: 192.168.99.100:9092
+          defaultZkPort: 2181
+          defaultBrokerPort: 9092

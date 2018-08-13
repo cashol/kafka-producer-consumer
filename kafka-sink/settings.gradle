@@ -1,0 +1,3 @@
+rootProject.name = 'kafka-sink'
+
+include '../kafka-message'

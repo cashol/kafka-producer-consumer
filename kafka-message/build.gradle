@@ -1,0 +1,29 @@
+buildscript {
+	ext {
+		avroVersion = '1.8.2'
+	}
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.siemens.ra.ts.kafkamessage'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 10
+
+// Disable bootJar, because kafka-message does not have a main class.
+// It just provides common classes for other projects.
+bootJar {
+    enabled = false
+}
+
+dependencies {
+	compile("org.springframework.cloud:spring-cloud-stream-schema")
+	compile("org.apache.avro:avro:${avroVersion}")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
