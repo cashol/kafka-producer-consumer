@@ -4,18 +4,11 @@ buildscript {
 	}
 }
 
-apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group = 'com.siemens.ra.ts.kafkamessage'
+group = 'com.siemens.ra.cg.kafkamessage'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 10
-
-// Disable bootJar, because kafka-message does not have a main class.
-// It just provides common classes for other projects.
-bootJar {
-    enabled = false
-}
 
 dependencies {
 	compile("org.springframework.cloud:spring-cloud-stream-schema")

@@ -1,12 +1,13 @@
-package com.siemens.ra.ts.kafkaprocessor;
+package com.siemens.ra.cg.kafkasource;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.test.binder.TestSupportBinderAutoConfiguration;
 
 @SpringBootApplication(exclude = TestSupportBinderAutoConfiguration.class)
-public class KafkaProcessorApplication {
+public class KafkaSourceApplication {
+
 	public static void main(String[] args) {
-		SpringApplication.run(KafkaProcessorApplication.class, args);
+		SpringApplication.run(KafkaSourceApplication.class, args);
 	}
 }

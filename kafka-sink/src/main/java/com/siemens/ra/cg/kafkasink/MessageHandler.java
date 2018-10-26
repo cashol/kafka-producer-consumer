@@ -1,4 +1,4 @@
-package com.siemens.ra.ts.kafkasink;
+package com.siemens.ra.cg.kafkasink;
 
 import java.time.Instant;
 import java.time.ZoneId;
@@ -11,7 +11,7 @@ import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 
-import com.siemens.ra.ts.kafkamessage.model.ChatMessage;
+import com.siemens.ra.cg.kafkamessage.model.ChatMessage;
 
 @EnableBinding(Sink.class)
 public class MessageHandler {

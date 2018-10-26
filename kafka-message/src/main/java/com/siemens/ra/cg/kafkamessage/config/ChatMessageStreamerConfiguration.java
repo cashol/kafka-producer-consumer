@@ -1,4 +1,4 @@
-package com.siemens.ra.ts.kafkamessage.config;
+package com.siemens.ra.cg.kafkamessage.config;
 
 import org.springframework.cloud.stream.schema.avro.AvroSchemaMessageConverter;
 import org.springframework.context.annotation.Bean;

@@ -1,13 +1,12 @@
+buildscript {
+}
 
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group = 'com.siemens.ra.ts.kafkasink'
+group = 'com.siemens.ra.cg.kafkasink'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 10
-
-repositories {
-}
 
 dependencies {
 	compile project(':kafka-message')

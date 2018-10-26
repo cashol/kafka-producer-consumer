@@ -1,11 +1,10 @@
-package com.siemens.ra.ts.kafkamessage.model;
+package com.siemens.ra.cg.kafkamessage.model;
 
 public class ChatMessage {
   private String contents;
   private long time;
 
   public ChatMessage() {
-
   }
 
   public ChatMessage(String contents, long time) {
@@ -20,4 +19,8 @@ public class ChatMessage {
   public String getContents() {
     return contents;
   }
+  
+  public static void main(String[] args) {
+    System.out.println("");
+}
 }

@@ -1,4 +1,4 @@
-package com.siemens.ra.ts.kafkasource;
+package com.siemens.ra.cg.kafkasource;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import org.springframework.integration.annotation.InboundChannelAdapter;
 import org.springframework.integration.annotation.Poller;
 import org.springframework.messaging.support.GenericMessage;
 
-import com.siemens.ra.ts.kafkamessage.model.ChatMessage;
+import com.siemens.ra.cg.kafkamessage.model.ChatMessage;
 
 @EnableBinding(Source.class)
 public class MessageSender {

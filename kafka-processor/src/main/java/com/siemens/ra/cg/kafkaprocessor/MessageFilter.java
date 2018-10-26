@@ -1,11 +1,11 @@
-package com.siemens.ra.ts.kafkaprocessor;
+package com.siemens.ra.cg.kafkaprocessor;
 
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Processor;
 
-import com.siemens.ra.ts.kafkamessage.model.ChatMessage;
+import com.siemens.ra.cg.kafkamessage.model.ChatMessage;
 
 import reactor.core.publisher.Flux;
 
