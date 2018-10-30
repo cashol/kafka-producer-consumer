@@ -1,3 +1,0 @@
-rootProject.name = 'kafka-source'
-
-include '../kafka-message'

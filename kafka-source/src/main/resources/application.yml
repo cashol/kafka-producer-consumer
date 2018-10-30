@@ -1,10 +1,3 @@
-# Set environment variable for CONFLUENT_HOST, e.g.: -vmargs -DCONFLUENT_HOST=192.168.99.100
-confluent:
-  host: ${CONFLUENT_HOST}
-  zkPort: ${ZK_PORT}
-  kafkaPort: ${KAFKA_PORT}
-  schemaPort: ${SCHEMA_PORT}
-  
 spring:
   cloud:
     stream:
@@ -12,10 +5,7 @@ spring:
         endpoint: 192.168.99.101:8081
       kafka:
         binder:
-          zkNodes: 192.168.99.101:12181,192.168.99.102:22181,192.168.99.103:32181
           brokers: 192.168.99.101:19092,192.168.99.102:29092,192.168.99.103:39092
-          defaultZkPort: 2181
-          defaultBrokerPort: 9092    
       schema:
         avro:
           dynamicSchemaGenerationEnabled: true

@@ -6,7 +6,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.siemens.ra.cg.kafkasource'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 10
+sourceCompatibility = 11
 
 dependencies {
 	compile project(':kafka-message')
@@ -17,3 +17,11 @@ dependencyManagement {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
 }
+
+// Created jar file has to be copied to folder with Dockerfile
+task copyJar(type: Copy) {
+	delete "src/main/docker/${rootProject.name}-${version}.jar"
+	from 'build/libs'
+	into 'src/main/docker'
+}
+assemble.dependsOn copyJar
